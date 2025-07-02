@@ -69,3 +69,14 @@ function filterList() {
     card.style.display = matchesCategory && matchesSearch ? 'block' : 'none';
   });
 }
+card.innerHTML = `
+  <img src="${item.screenshotUrl}" alt="${item.name}" />
+  <h3>${item.name}</h3>
+  <p>${item.tooltip}</p>
+  <small>${item.year} • Build ${item.build}</small><br/>
+  <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
+
+  <span class="tooltip-icon">ℹ️
+    <span class="tooltip-text">${item.funFact || 'No fun fact available.'}</span>
+  </span>
+`;
