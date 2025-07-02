@@ -1,30 +1,45 @@
 [
   {
     "name": "Windows 95",
-    "build": "4.00.950",
+    "build": "4.0.950",
+    "year": "1995",
     "category": "Released",
     "isoUrl": "https://archive.org/download/win95.iso",
-    "productKey": "11111-22222-33333-44444-55555"
-  },
+    "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
+    "tooltip": "Final 95 release",
+    "screenshotUrl": "images/95_desktop.png"
+  }
+][
   {
-    "name": "Windows XP Professional",
+    "name": "Windows XP SP3",
     "build": "5.1.2600",
+    "year": "2008",
     "category": "Released",
-    "isoUrl": "https://archive.org/download/winxppro.iso",
-    "productKey": "WXPPR-XXXXX-XXXXX-XXXXX-XXXXX"
-  },
+    "isoUrl": "https://archive.org/download/winxpsp3pro.iso",
+    "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
+    "tooltip": "Final XP release",
+    "screenshotUrl": "images/xp_pro.png"
+  }
+][
   {
-    "name": "Windows Longhorn Build 4074",
-    "build": "4074",
+    "name": "Windows Longhorn",
+    "build": "6.0.4074",
+    "year": "2004",
     "category": "Beta",
-    "isoUrl": "https://archive.org/download/longhorn4074.iso",
-    "productKey": "LH407-XXXXX-XXXXX-XXXXX-XXXXX"
-  },
+    "isoUrl": "https://archive.org/download/winlh4074.iso",
+    "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
+    "tooltip": "One of the main and very last Longhorn builds.",
+    "screenshotUrl": "images/lh_4074.png"
+  }
+][
   {
-    "name": "Windows Vista RTM",
-    "build": "6.0.6000",
+    "name": "Windows Vista SP2",
+    "build": "6.0.6002",
+    "year": "2007",
     "category": "Released",
-    "isoUrl": "https://archive.org/download/winvista.iso",
-    "productKey": "VISTA-XXXXX-XXXXX-XXXXX-XXXXX"
+    "isoUrl": "https://archive.org/download/winvistaultimatesp2.iso",
+    "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
+    "tooltip": "Final Vista release",
+    "screenshotUrl": "images/vista_ultimate.png"
   }
 ]
