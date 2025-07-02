@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Windows ISOs & Product Keys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows ISOs and Product Keys</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="theme-xp fade-in">
-  <div class="navbar">
-    <h1>Windows Archive</h1>
-    <div class="theme-switcher">
-      <label>Theme:</label>
-      <select id="themeSelector">
-        <option value="xp">XP</option>
-        <option value="vista">Vista</option>
-        <option value="longhorn">Longhorn</option>
-        <option value="win11">Windows 11</option>
-      </select>
-    </div>
-  </div>
+<body>
+  <header>
+    <h1>Windows ISOs & Product Keys Collection</h1>
+  </header>
 
-  <div class="center-buttons">
-    <a href="isos.html" class="nav-button">ISOs</a>
-    <a href="productkeys.html" class="nav-button">Product Keys</a>
-  </div>
+  <nav>
+    <button onclick="window.location.href='isos.html'">ISOs</button>
+    <button onclick="window.location.href='productkeys.html'">Product Keys</button>
+
+    <label for="themeSelect">Theme:</label>
+    <select id="themeSelect">
+      <option value="">Default</option>
+      <option value="xp">XP</option>
+      <option value="vista">Vista</option>
+      <option value="longhorn">Longhorn</option>
+      <option value="win11">Windows 11</option>
+    </select>
+  </nav>
+
+  <main>
+    <p>Welcome to the ultimate Windows ISOs and product keys archive.</p>
+  </main>
 
   <script src="script.js"></script>
 </body>
