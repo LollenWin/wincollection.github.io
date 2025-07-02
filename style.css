@@ -100,3 +100,8 @@ body.theme-win11 {
     opacity: 1;
   }
 }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
