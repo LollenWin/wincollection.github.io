@@ -2,17 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Windows ISOs</title>
+  <title>All Windows ISOs</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Windows ISOs</h1>
-  <a href="index.html" class="btn">← Back to Home</a>
-  <h2>Released Versions</h2>
-  <ul id="released-list"></ul>
+<body class="theme-xp fade-in">
+  <div class="navbar">
+    <a href="index.html" class="nav-button">← Back</a>
+    <h2>Windows ISOs</h2>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="Released">Released</option>
+        <option value="Misc">Misc</option>
+        <option value="Office">Office</option>
+        <option value="MS-DOS">MS-DOS</option>
+      </select>
+    </div>
+  </div>
 
-  <h2 class="toggle" id="toggle-beta">Show Betas ▼</h2>
-  <ul id="beta-list" style="display: none;"></ul>
+  <div id="isoList" class="grid"></div>
 
   <script src="script.js"></script>
 </body>
