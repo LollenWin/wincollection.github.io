@@ -7,6 +7,7 @@
     "isoUrl": "https://archive.org/download/win95.iso",
     "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
     "tooltip": "Final 95 release",
+    "funFact": "This is one of the most revolutionary versions of Windows, as it introduced the Taskbar and Start Menu",
     "screenshotUrl": "images/95_desktop.png"
   }
 ][
@@ -18,6 +19,7 @@
     "isoUrl": "https://archive.org/download/winxpsp3pro.iso",
     "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
     "tooltip": "Final XP release",
+    "funFact": "This is the last service pack for XP, as support would end in 2014. There was originally going to be a SP4, but Microsoft never made it as they were focused on Windows 7 development and fixing Windows Vista at the time",
     "screenshotUrl": "images/xp_pro.png"
   }
 ][
@@ -29,6 +31,7 @@
     "isoUrl": "https://archive.org/download/winlh4074.iso",
     "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
     "tooltip": "One of the main and very last Longhorn builds.",
+    "funFact": "The first Longhorn build that had WinFS concept integrated, although, as it caused many problems such as memory leaks, it was reset with the last build being 4093",
     "screenshotUrl": "images/lh_4074.png"
   }
 ][
@@ -40,6 +43,7 @@
     "isoUrl": "https://archive.org/download/winvistaultimatesp2.iso",
     "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
     "tooltip": "Final Vista release",
+    "funFact": "Recieved alot of critism on release. Microsoft even tried making a copy of Vista called Mojave, but that also flopped",
     "screenshotUrl": "images/vista_ultimate.png"
   }
 ]
