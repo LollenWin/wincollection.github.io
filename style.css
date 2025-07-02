@@ -112,3 +112,16 @@ input#filterInput {
   border-radius: 6px;
   white-space: normal;
   width: 220px;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-icon::after {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+}
