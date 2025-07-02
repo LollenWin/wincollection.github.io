@@ -9,8 +9,18 @@
     "tooltip": "Final 95 release",
     "funFact": "This is one of the most revolutionary versions of Windows, as it introduced the Taskbar and Start Menu",
     "screenshotUrl": "images/95_desktop.png"
-  }
-][
+  },
+  {
+    "name": "Windows 95 OSR2",
+    "build": "4.00.950B",
+    "year": "1996",
+    "category": "Released",
+    "isoUrl": "https://archive.org/download/win95osr2.iso",
+    "productKey": "KJ6G4-26J88-3Q2JP-3FF9B-J44JP",
+    "tooltip": "OSR2 brought FAT32 support to Windows 95.",
+    "funFact": "This update was crucial for supporting large hard drives.",
+    "screenshotUrl": "images/win95.png"
+  },
   {
     "name": "Windows XP SP3",
     "build": "5.1.2600",
@@ -21,8 +31,7 @@
     "tooltip": "Final XP release",
     "funFact": "This is the last service pack for XP, as support would end in 2014. There was originally going to be a SP4, but Microsoft never made it as they were focused on Windows 7 development and fixing Windows Vista at the time",
     "screenshotUrl": "images/xp_pro.png"
-  }
-][
+  },
   {
     "name": "Windows Longhorn",
     "build": "6.0.4074",
@@ -33,8 +42,7 @@
     "tooltip": "One of the main and very last Longhorn builds.",
     "funFact": "The first Longhorn build that had WinFS concept integrated, although, as it caused many problems such as memory leaks, it was reset with the last build being 4093",
     "screenshotUrl": "images/lh_4074.png"
-  }
-][
+  },
   {
     "name": "Windows Vista SP2",
     "build": "6.0.6002",
@@ -43,7 +51,7 @@
     "isoUrl": "https://archive.org/download/winvistaultimatesp2.iso",
     "productKey": "V2C47-MK7JD-3R89F-D2KXW-VPK3J",
     "tooltip": "Final Vista release",
-    "funFact": "Recieved alot of critism on release. Microsoft even tried making a copy of Vista called Mojave, but that also flopped",
+    "funFact": "Received a lot of criticism on release. Microsoft even tried making a copy of Vista called Mojave, but that also flopped",
     "screenshotUrl": "images/vista_ultimate.png"
   }
 ]
