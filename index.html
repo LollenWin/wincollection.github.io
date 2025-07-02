@@ -2,15 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Windows ISOs & Product Keys</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Windows ISOs & Product Keys</h1>
-  <p>Choose an option:</p>
-  <div class="button-container">
-    <a class="btn" href="isos.html">Download ISOs</a>
-    <a class="btn" href="productkeys.html">View Product Keys</a>
+<body class="theme-xp fade-in">
+  <div class="navbar">
+    <h1>Windows Archive</h1>
+    <div class="theme-switcher">
+      <label>Theme:</label>
+      <select id="themeSelector">
+        <option value="xp">XP</option>
+        <option value="vista">Vista</option>
+        <option value="longhorn">Longhorn</option>
+        <option value="win11">Windows 11</option>
+      </select>
+    </div>
   </div>
+
+  <div class="center-buttons">
+    <a href="isos.html" class="nav-button">ISOs</a>
+    <a href="productkeys.html" class="nav-button">Product Keys</a>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
