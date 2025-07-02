@@ -2,25 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Windows Product Keys</title>
+  <title>Product Keys</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Windows Product Keys</h1>
-  <a href="index.html" class="btn">← Back to Home</a>
-  <ul id="key-list"></ul>
-
-  <script>
-    fetch('windows_versions.json')
-      .then(res => res.json())
-      .then(data => {
-        const keyList = document.getElementById('key-list');
-        data.forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `<strong>${item.name}</strong> (Build ${item.build})<br>Key: <code>${item.productKey}</code>`;
-          keyList.appendChild(li);
-        });
-      });
-  </script>
+<body class="theme-xp fade-in">
+  <div class="navbar">
+    <a href="index.html" class="nav-button">← Back</a>
+    <h2>Product Keys</h2>
+  </div>
+  <div id="keyList" class="grid"></div>
+  <script src="script.js"></script>
 </body>
 </html>
