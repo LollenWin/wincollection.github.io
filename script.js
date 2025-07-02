@@ -1,93 +1,100 @@
-// Load theme
 document.addEventListener('DOMContentLoaded', () => {
-  const themeSelector = document.getElementById('themeSelector');
-  if (themeSelector) {
-    themeSelector.addEventListener('change', (e) => {
-      document.body.className = `theme-${e.target.value} fade-in`;
-    });
-  }
+  const isoList = document.getElementById('isoList');
+  const keyList = document.getElementById('keyList');
+  const filterInput = document.getElementById('filterInput');
+  const themeSelect = document.getElementById('themeSelect');
 
+  let windowsData = [];
+
+  // Load JSON data
   fetch('windows_versions.json')
     .then(res => res.json())
     .then(data => {
-      const path = window.location.pathname;
-      if (path.includes('isos')) renderISOs(data);
-      else if (path.includes('productkeys')) renderKeys(data);
-    });
+      windowsData = data;
+      renderISOs(windowsData);
+      renderKeys(windowsData);
+    })
+    .catch(err => console.error('Error loading JSON:', err));
 
-  const searchInput = document.getElementById('searchInput');
-  const categoryFilter = document.getElementById('categoryFilter');
-  if (searchInput && categoryFilter) {
-    searchInput.addEventListener('input', () => filterList());
-    categoryFilter.addEventListener('change', () => filterList());
+  // Render ISOs
+  function renderISOs(data) {
+    if (!isoList) return;
+    isoList.innerHTML = '';
+
+    data.forEach(item => {
+      if (!item.isoUrl) return; // Skip if no ISO URL
+
+      const card = document.createElement('div');
+      card.className = 'card fade-in';
+
+      card.innerHTML = `
+        <img src="${item.screenshotUrl || 'images/default.png'}" alt="${item.name}" />
+        <h3>${item.name}</h3>
+        <p>${item.tooltip}</p>
+        <small>${item.year} • Build ${item.build}</small><br/>
+        <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
+        <span class="tooltip-icon" title="${item.funFact ? item.funFact : 'No fun fact available.'}">ℹ️</span>
+      `;
+
+      card.dataset.name = item.name.toLowerCase();
+      isoList.appendChild(card);
+    });
+  }
+
+  // Render Product Keys
+  function renderKeys(data) {
+    if (!keyList) return;
+    keyList.innerHTML = '';
+
+    data.forEach(item => {
+      if (!item.productKey) return; // Skip if no product key
+
+      const card = document.createElement('div');
+      card.className = 'card fade-in';
+
+      card.innerHTML = `
+        <h3>${item.name}</h3>
+        <p><strong>Product Key:</strong> ${item.productKey}</p>
+        <small>${item.year} • Build ${item.build}</small><br/>
+        <span class="tooltip-icon" title="${item.funFact ? item.funFact : 'No fun fact available.'}">ℹ️</span>
+      `;
+
+      card.dataset.name = item.name.toLowerCase();
+      keyList.appendChild(card);
+    });
+  }
+
+  // Filtering
+  if (filterInput) {
+    filterInput.addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+
+      // Filter ISOs
+      if (isoList) {
+        Array.from(isoList.children).forEach(card => {
+          const name = card.dataset.name;
+          card.style.display = name.includes(term) ? '' : 'none';
+        });
+      }
+
+      // Filter Keys
+      if (keyList) {
+        Array.from(keyList.children).forEach(card => {
+          const name = card.dataset.name;
+          card.style.display = name.includes(term) ? '' : 'none';
+        });
+      }
+    });
+  }
+
+  // Theme switching
+  if (themeSelect) {
+    themeSelect.addEventListener('change', e => {
+      document.body.className = ''; // reset classes
+      const theme = e.target.value;
+      if (theme) {
+        document.body.classList.add(`theme-${theme}`);
+      }
+    });
   }
 });
-
-function renderISOs(data) {
-  const list = document.getElementById('isoList');
-  list.innerHTML = '';
-  data.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card fade-in';
-    card.innerHTML = `
-      <img src="${item.screenshotUrl}" alt="${item.name}" />
-      <h3>${item.name}</h3>
-      <p>${item.tooltip}</p>
-      <small>${item.year} • Build ${item.build}</small><br/>
-      <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
-    `;
-    card.dataset.category = item.category;
-    card.dataset.name = item.name.toLowerCase();
-    list.appendChild(card);
-  });
-}
-
-function renderKeys(data) {
-  const list = document.getElementById('keyList');
-  list.innerHTML = '';
-  data.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card fade-in';
-    card.innerHTML = `
-      <h3>${item.name}</h3>
-      <p><b>Key:</b> ${item.productKey}</p>
-      <small>${item.year} • Build ${item.build}</small>
-    `;
-    card.dataset.category = item.category;
-    card.dataset.name = item.name.toLowerCase();
-    list.appendChild(card);
-  });
-}
-
-function filterList() {
-  const searchValue = document.getElementById('searchInput').value.toLowerCase();
-  const category = document.getElementById('categoryFilter').value;
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    const matchesCategory = category === 'all' || card.dataset.category === category;
-    const matchesSearch = card.dataset.name.includes(searchValue);
-    card.style.display = matchesCategory && matchesSearch ? 'block' : 'none';
-  });}
-function renderISOs(data) {
-  const list = document.getElementById('isoList');
-  list.innerHTML = '';
-
-  data.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card fade-in';
-
-    // Minimal card content with basic tooltip
-    card.innerHTML = `
-      <h3>${item.name}</h3>
-      <p>${item.tooltip}</p>
-      <small>${item.year} • Build ${item.build}</small><br/>
-      <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
-      <span title="${item.funFact || 'No fun fact available.'}" style="color:#99ccff; cursor:pointer;">ℹ️</span>
-    `;
-
-    card.dataset.category = item.category;
-    card.dataset.name = item.name.toLowerCase();
-
-    list.appendChild(card);
-  });
-}
