@@ -2,26 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>All Windows ISOs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows ISOs</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="theme-xp fade-in">
-  <div class="navbar">
-    <a href="index.html" class="nav-button">← Back</a>
-    <h2>Windows ISOs</h2>
-    <div class="filters">
-      <input type="text" id="searchInput" placeholder="Search..." />
-      <select id="categoryFilter">
-        <option value="all">All</option>
-        <option value="Released">Released</option>
-        <option value="Misc">Misc</option>
-        <option value="Office">Office</option>
-        <option value="MS-DOS">MS-DOS</option>
-      </select>
-    </div>
-  </div>
+<body>
+  <div class="container">
+    <header>
+      <h1>Windows ISOs</h1>
+    </header>
 
-  <div id="isoList" class="grid"></div>
+    <nav>
+      <button onclick="window.location.href='index.html'">Home</button>
+      <button onclick="window.location.href='productkeys.html'">Product Keys</button>
+
+      <label for="themeSelect">Theme:</label>
+      <select id="themeSelect">
+        <option value="">Default</option>
+        <option value="xp">XP</option>
+        <option value="vista">Vista</option>
+        <option value="longhorn">Longhorn</option>
+        <option value="win11">Windows 11</option>
+      </select>
+    </nav>
+
+    <input type="text" id="filterInput" placeholder="Search Windows versions..." autocomplete="off" />
+
+    <section id="isoList" class="cards-list">
+      <!-- ISO cards get rendered here -->
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
