@@ -67,12 +67,27 @@ function filterList() {
     const matchesCategory = category === 'all' || card.dataset.category === category;
     const matchesSearch = card.dataset.name.includes(searchValue);
     card.style.display = matchesCategory && matchesSearch ? 'block' : 'none';
+  });}
+function renderISOs(data) {
+  const list = document.getElementById('isoList');
+  list.innerHTML = '';
+
+  data.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card fade-in';
+
+    // Minimal card content with basic tooltip
+    card.innerHTML = `
+      <h3>${item.name}</h3>
+      <p>${item.tooltip}</p>
+      <small>${item.year} • Build ${item.build}</small><br/>
+      <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
+      <span title="${item.funFact || 'No fun fact available.'}" style="color:#99ccff; cursor:pointer;">ℹ️</span>
+    `;
+
+    card.dataset.category = item.category;
+    card.dataset.name = item.name.toLowerCase();
+
+    list.appendChild(card);
   });
 }
-card.innerHTML = `
-  <h3>${item.name}</h3>
-  <p>${item.tooltip}</p>
-  <small>${item.year} • Build ${item.build}</small><br/>
-  <a href="${item.isoUrl}" target="_blank" class="nav-button">Download ISO</a>
-  <span style="color:#99ccff;cursor:pointer;" title="${item.funFact ? item.funFact : 'No fun fact available.'}">ℹ️</span>
-`;
