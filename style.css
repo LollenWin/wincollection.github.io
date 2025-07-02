@@ -73,3 +73,51 @@ body {
 @keyframes fadeIn {
   to { opacity: 1; }
 }
+.tooltip-icon {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 16px;
+  color: #99ccff;
+  user-select: none;
+  filter: drop-shadow(0 0 3px #99ccff);
+}
+
+.tooltip-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background: rgba(20, 40, 60, 0.7);
+  color: #cce6ff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 15px #99ccff;
+  user-select: text;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(20, 40, 60, 0.7) transparent transparent transparent;
+}
