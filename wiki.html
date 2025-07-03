@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Windows Build Wiki</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header><h1>Windows Build Wiki</h1></header>
+
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='isos.html'">ISOs</button>
+      <button onclick="location.href='productkeys.html'">Product Keys</button>
+
+      <label for="themeSelect">Theme:</label>
+      <select id="themeSelect">
+        <option value="">Default</option>
+        <option value="xp">Windows XP</option>
+        <option value="vista">Windows Vista</option>
+        <option value="longhorn">Longhorn</option>
+        <option value="win11">Windows 11</option>
+      </select>
+    </nav>
+
+    <input type="text" id="filterInput" placeholder="Search Builds..." autocomplete="off" />
+
+    <section id="wikiList" class="cards-list">
+      <!-- Wiki cards here -->
+    </section>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
