@@ -1,38 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Windows ISOs</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Segoe UI, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 2em;
+    }
+    h1 {
+      text-align: center;
+    }
+    #filter-bar {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .filter-btn {
+      padding: 0.5em 1em;
+      margin: 0.3em;
+      border: none;
+      border-radius: 4px;
+      background: #0078d7;
+      color: white;
+      cursor: pointer;
+    }
+    .filter-btn:hover {
+      background: #005a9e;
+    }
+    .cards-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      width: 220px;
+      padding: 1em;
+      text-align: center;
+      position: relative;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    .tooltip {
+      background: #000;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-size: 0.8em;
+    }
+    .card:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Windows ISOs</h1>
-    </header>
-
-    <nav>
-      <button onclick="window.location.href='index.html'">Home</button>
-      <button onclick="window.location.href='productkeys.html'">Product Keys</button>
-
-      <label for="themeSelect">Theme:</label>
-      <select id="themeSelect">
-        <option value="">Default</option>
-        <option value="xp">XP</option>
-        <option value="vista">Vista</option>
-        <option value="longhorn">Longhorn</option>
-        <option value="win11">Windows 11</option>
-      </select>
-    </nav>
-
-    <input type="text" id="filterInput" placeholder="Search Windows versions..." autocomplete="off" />
-
-    <section id="isoList" class="cards-list">
-      <!-- ISO cards get rendered here -->
-    </section>
+  <h1>Windows ISO Downloads</h1>
+  <div id="filter-bar">
+    <button class="filter-btn" onclick="filterISOs('All')">All</button>
+    <button class="filter-btn" onclick="filterISOs('Released')">Released</button>
+    <button class="filter-btn" onclick="filterISOs('Beta')">Beta</button>
   </div>
+  <section id="isoList" class="cards-list">
+    <!-- Cards inserted here -->
+  </section>
 
-  <script src="script.js"></script>
+  <script>
+    let allISOs = [];
+
+    function displayISOs(data) {
+      const isoList = document.getElementById('isoList');
+      isoList.innerHTML = '';
+
+      data.forEach(iso => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        card.innerHTML = `
+          <div class="tooltip">${iso.tooltip || ''}</div>
+          <img src="${iso.screenshotUrl || 'images/placeholder.png'}" alt="${iso.name}">
+          <h3>${iso.name}</h3>
+          <p><strong>Build:</strong> ${iso.build}</p>
+          <p><strong>Year:</strong> ${iso.year}</p>
+          <a href="${iso.isoUrl}" download>Download ISO</a>
+        `;
+
+        card.setAttribute('data-category', iso.category);
+        isoList.appendChild(card);
+      });
+    }
+
+    function filterISOs(category) {
+      if (category === 'All') {
+        displayISOs(allISOs);
+      } else {
+        const filtered = allISOs.filter(iso => iso.category === category);
+        displayISOs(filtered);
+      }
+    }
+
+    // Fetch and display data
+    fetch('./windows_versions.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch JSON');
+        return res.json();
+      })
+      .then(data => {
+        allISOs = data;
+        displayISOs(allISOs);
+      })
+      .catch(err => {
+        document.body.innerHTML = `<pre style="color:red; font-size:1.2em;">⚠️ JSON Load Error: ${err.message}</pre>`;
+      });
+  </script>
 </body>
 </html>
